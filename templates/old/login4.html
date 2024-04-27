@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket Example</title>
+</head>
+<body>
+<div id="powValue">
+    12345678.1234567
+</div>
+
+<script>
+    const powValueElement = document.getElementById("powValue");
+
+    // Создание объекта WebSocket и подключение к серверу
+    const ws = new WebSocket("wss://7c2a-115-91-214-5.ngrok-free.app/ws1");
+
+    // Обработчик события открытия соединения
+    ws.onopen = function (event) {
+        console.log("WebSocket connection is open.");
+    };
+
+    ws.onmessage = function (event) {
+        const data = JSON.parse(event.data);
+        console.log("Received data from server:", data);
+
+        if (data.pow_val) {
+            powValueElement.innerText = "POW Value: " + data.pow_val;
+        }
+    };
+</script>
+</body>
+</html>
+

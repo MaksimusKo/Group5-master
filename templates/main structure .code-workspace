@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"name": "main structure ",
+			"path": "."
+		},
+		{
+			"name": "json",
+			"path": "../WebDeb/Side bar/json"
+		},
+		{
+			"name": "src",
+			"path": "../WebDeb/Side bar/src"
+		}
+	],
+	"settings": {
+		"liveServer.settings.port": 5501,
+		"liveServer.settings.multiRootWorkspaceName": "main structure "
+	}
+}

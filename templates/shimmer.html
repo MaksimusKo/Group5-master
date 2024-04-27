@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}shimmer{% endblock %}
+
+{% block content %}
+    <article id="gsr" class="teams">
+        <div class="box">
+            <section class="info-section w3-container w3-third">
+                <h1 class="w3-text-teal">GSR</h1>
+                <h2 class="w3-left-align w3-xlarge">Galvanic Skin Response</h2>
+                <p class="w3-left-align">refer to changes in sweat gland activity that are reflective of the emotional state</p>
+                <p class="w3-left-align">stronger emotinal state will produce increase in skin conductance</p>
+                <p class="w3-left-align">be aware of the truth that GSR signal is not representive of the type of emotion, but the intensity of it</p>
+            </section>
+            <section class="w3-container w3-twothird">
+                <canvas></canvas>
+            </section>
+        </div>
+    </article>
+    
+    <article id="ppg" class="teams">
+        <div class="box">
+            <section class="w3-container w3-twothird">
+                <canvas></canvas>
+            </section>
+            <section class="info-section w3-container w3-third">
+                <h1 class="w3-text-teal">PPG</h1>
+                <h2 class="w3-left-align w3-xlarge">Photoplethysmography</h2>
+                <p class="w3-left-align">detect the changes of blood stream under the skin tissue</p>
+                <p class="w3-left-align">every peak in the signal is reflective to the heartbeat</p>
+            </section>
+        </div>
+    </article>
+{% endblock %}

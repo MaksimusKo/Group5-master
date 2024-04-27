@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Website{% endblock %}</title>
+    <!-- Подключение стилей и скриптов -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script defer type="module" src="/static/js/layout.js"></script>
+    <script defer type="module" src="/static/js/main.js"></script>
+</head>
+<body class="jii">
+    <header class="w3-teal" style="justify-content: space-between; display: flex; align-items: center;">
+        <!-- Ваша шапка с навигацией -->
+        <button id="sidebar-toggle-btn" class="w3-button w3-teal w3-xlarge toggle-sidebar-btn">☰</button>
+        <div class="header_faq">
+            <ul style=" display: flex; gap: 25px; align-items: center; list-style: none; margin-right:15px">
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="about_us.html" class="about_us">About Us</a></li>
+                <li>FAQ</li>
+            </ul>
+        </div>
+    </header>
+    <aside class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+        <!-- Ваше боковое меню -->
+        <button type="button" id="btn-index" class="w3-bar-item w3-button">
+            Home
+        </button>
+        <button type="button" id="btn-epocX" class="w3-bar-item w3-button w3-row">
+            <img class="w3-container w3-third" src="static/src/simple-icon-of-brain-scanner-for-menu-button-in-we.png" alt="">
+            <p class="w3-container w3-twothird">EPOC-X</p>
+        </button>
+        <button type="button" id="btn-shimmer" class="w3-bar-item w3-button">
+            <img class="w3-container w3-third" src="static/src/make-it-more-heartbeat-related.png" alt="">
+            <p class="w3-container w3-twothird">Shimmer3 EMG Unit</p>
+        </button>
+    </aside>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <div class="footer">
+            <div class="row">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+                <a href="#"><i class="fa fa-youtube"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+            </div>
+            <div class="row">
+                <ul>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">Our Services</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Career</a></li>
+                </ul>
+            </div>
+            <div class="row">
+                Copyright © 2024 Sejong University Computer Science Department - All rights reserved || Designed By:
+                Ismail
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

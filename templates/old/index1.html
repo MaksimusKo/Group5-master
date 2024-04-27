@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DashBoard</title>
+
+    <!-- chart -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.1/css/bootstrap.min.css"
+          integrity="sha512-T584yQ/tdRR5QwOpfvDfVQUidzfgc2339Lc8uBDtcp/wYu80d7jwBgAxbyMh0a9YM9F8N3tdErpFI8iaGx6x5g=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <style>
+        #canvas-container {
+            margin-top: 20px;
+        }
+
+        .container{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+    <!-- reset -->
+    <!-- <link rel="stylesheet" href="./reset.css"> -->
+    <style>
+        /* http://meyerweb.com/eric/tools/css/reset/ 
+        v2.0 | 20110126
+        License: none (public domain)
+        */
+
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed, 
+        figure, figcaption, footer, header, hgroup, 
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure, 
+        footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+        body {
+            line-height: 1;
+        }
+        ol, ul {
+            list-style: none;
+        }
+        blockquote, q {
+            quotes: none;
+        }
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+            content: '';
+            content: none;
+        }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+
+        *{
+            box-sizing: border-box;
+        }
+    </style>
+
+    <!-- vanilla css -->
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        /* Layout */
+        body{
+            width: 100vw;
+            height: 100vh;
+        }
+        header{
+            width: 100%;
+            height: 8%;
+            position: sticky;
+            background-color: white;
+            box-shadow: 1px 0px 10px #000000aa;
+        }
+        #aside-main-wrapper{
+            display: flex;
+            width: 100%;
+            height: 92%;
+        }
+        aside{
+            width: 20%;
+            height: 100%;
+            padding: 1% 0;
+        }
+        main{
+            background-color: #eeeeeeee;
+            width: 80%;
+            height: 100%;
+            padding: 3%;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            overflow: scroll;
+        }
+        footer{
+            background-color: rgb(128, 128, 128);
+            width: 100%;
+            height: 10%;
+        }
+
+        /* style for example in aside */
+        menu{
+            width: 100%;
+            height: 100%;
+            overflow: scroll;
+            list-style: none;
+        }
+        li{
+            width: 80%;
+            height: 8%;
+            border-radius: 8px;
+            margin: 10% auto;
+
+            text-align: center;
+            background-color: powderblue;
+        }
+
+
+        /* style for example in main */
+        section{
+            background-color: white;
+            border-radius: 5px;
+            margin-bottom: 3%;
+            box-shadow: 1px 5px 10px rgb(172, 172, 172);
+        }
+
+
+        .class1{
+            width: 30%;
+            height: 30%;
+        }
+
+        #section4{
+            width: 100%;
+            /* height: 25%; */
+        }
+
+        .class2{
+            width: 23%;
+            height: 20%;
+        }
+
+        #tmp1{
+            width: 75%;
+            height: 30%;
+        }
+        #tmp2{
+            width: 23%;
+            height: 30%;
+        }
+
+
+
+        /* media Query */
+        @media (max-width: 768px) {
+            aside{
+                display: none;
+            }
+            main{
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            main{
+                width: 100%;
+                display: block;
+            }
+            main section{
+                width: 96% !important;
+                margin: 6% auto;
+            }
+        }
+    </style>
+
+
+</head>
+<body>
+    <header>
+        header
+        <nav>nav</nav>
+    </header>
+    <div id="aside-main-wrapper">
+        <aside>
+            <menu>
+                <li>btn? anchor tag?</li>
+                <li>btn? anchor tag?</li>
+                <li>btn? anchor tag?</li>
+                <li>btn? anchor tag?</li>
+                <li>btn? anchor tag?</li>
+                <li>btn? anchor tag?</li>
+                <li>btn? anchor tag?</li>
+                <li>btn? anchor tag?</li>
+                <li>btn? anchor tag?</li>
+                <li>btn? anchor tag?</li>
+                <li>btn? anchor tag?</li>
+                <li>btn? anchor tag?</li>
+                <li>btn? anchor tag?</li>
+                <li>btn? anchor tag?</li>
+                <li>btn? anchor tag?</li>
+                <li>btn? anchor tag?</li>
+            </menu>
+        </aside>
+        <main>
+            <section id="section1" class="class1"></section>
+            <section id="section2" class="class1"></section>
+            <section id="section3" class="class1"></section>
+            <section id="section4">
+
+                <!-- chart -->
+                <div class="container">
+                    <h1>Bitcoin Price Dashboard</h1>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h2>Bitcoin Price</h2>
+                            <div id="price"></div>
+                        </div>
+                        <div class="col-md-6">
+                            <h2>Real-Time Bitcoin Price Chart</h2>
+                            <div id="canvas-container">
+                                <canvas id="canvas"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+            <section class="class2"></section>
+            <section class="class2"></section>
+            <section class="class2"></section>
+            <section class="class2"></section>
+            <section id="tmp1">tmp1</section>
+            <section id="tmp2">tmp2</section>
+            <section class="class2">section4</section>
+            <section class="class2">section4</section>
+            <section class="class2">section4</section>
+            <section class="class2">section4</section>
+            <section class="class2">section4</section>
+            <section class="class2">section4</section>
+            <section class="class2">section4</section>
+        </main>
+    </div>
+    <footer>
+        footer
+    </footer>
+
+
+    <!-- script for chart -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.1/js/bootstrap.bundle.min.js"
+            integrity="sha512-mULnawDVcCnsk9a4aG1QLZZ6rcce/jSzEGqUkeOLy0b6q0+T6syHrxlsAGH7ZVoqC93Pd0lBqd6WguPWih7VHA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
+            integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function () {
+            const priceDiv = document.getElementById('price');
+            let socket = new WebSocket('ws://localhost:8000/ws');
+
+            socket.onmessage = function(event) {
+                const data = JSON.parse(event.data);
+                priceDiv.textContent = `Latest Bitcoin Price: $${data.pow_val}`;
+
+                const time = new Date().toLocaleTimeString();
+                addDataToChart(time, data.pow_val);
+            };
+
+            socket.onclose = function(event) {
+                console.error("WebSocket closed:", event);
+                setTimeout(startWebSocket, 3000);
+            };
+
+            function startWebSocket() {
+                socket.close();
+                const newSocket = new WebSocket('ws://localhost:8000/ws');
+                newSocket.onmessage = socket.onmessage;
+                newSocket.onclose = socket.onclose;
+                socket = newSocket;
+            }
+
+            window.addEventListener('beforeunload', function() {
+                socket.close();
+            });
+
+            const config = {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: "Bitcoin Price",
+                        backgroundColor: 'rgb(54, 162, 235)',
+                        borderColor: 'rgb(54, 162, 235)',
+                        borderWidth: 1,
+                        data: [],
+                        fill: true,
+                    }],
+                },
+                options: {
+                    responsive: true,
+                    title: {
+                        display: true,
+                        text: 'Real-Time Bitcoin Price Chart'
+                    },
+                    tooltips: {
+                        mode: 'index',
+                        intersect: true,
+                    },
+                    hover: {
+                        mode: 'nearest',
+                        intersect: true
+                    },
+                    scales: {
+                        xAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Time'
+                            }
+                        }],
+                        yAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Bitcoin Price (USD)'
+                            }
+                        }]
+                    }
+                }
+            };
+
+            const context = document.getElementById('canvas').getContext('2d');
+            const lineChart = new Chart(context, config);
+
+            function addDataToChart(time, price) {
+                if (config.data.labels.length === 30) {
+                    config.data.labels.shift();
+                    config.data.datasets[0].data.shift();
+                }
+                config.data.labels.push(time);
+                config.data.datasets[0].data.push(price);
+                lineChart.update();
+            }
+        });
+    </script>
+</body>
+</html>

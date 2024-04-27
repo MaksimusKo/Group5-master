@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chart.js Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="tmp"></div>
+    <hr/>
+    <div style="border: 2px solid tomato; width: 500px; display: inline-block;">
+      <canvas id="line"></canvas>
+    </div>
+    <div style="border: 2px solid peru; width: 500px; display: inline-block;">
+      <canvas id="pie"></canvas>
+    </div>
+    <div style="border: 2px solid powderblue; width: 500px; display: inline-block;">
+      <canvas id="bar"></canvas>
+    </div>
+
+    <script>
+        const dataList = [];
+        const labelsList = [];
+
+        const line = document.querySelector("#line");
+        const pie = document.querySelector("#pie");
+        const bar = document.querySelector("#bar");
+
+        const myLineChart = new Chart(line, {
+            type: "line",
+            data: {
+                labels: labelsList,
+                datasets: [
+                    {
+                        label: "Bitcoin Value (USD)",
+                        data: dataList,
+                        backgroundColor: "rgba(255, 99, 132, 0.2)",
+                        borderColor: "rgba(255, 99, 132, 1)",
+                        borderWidth: 1
+                    }
+                ],
+            },
+            options: {
+                animation: false
+            }
+        });
+
+        const myPieChart = new Chart(pie, {
+            type: "pie",
+            data: {
+                labels: ["Actual Data", "Rest", "Bla"],
+                datasets: [
+                    {
+                        label: "Pie Chart",
+                        data: [],
+                        backgroundColor: ["tomato", "lemonchiffon", "powderblue"]
+                    }
+                ],
+            },
+            options: {
+                animation: false
+            }
+        });
+
+        const myBarChart = new Chart(bar, {
+            type: "bar",
+            data: {
+                labels: labelsList,
+                datasets: [
+                    {
+                        label: "Bar Chart",
+                        data: dataList,
+                        backgroundColor: "rgba(54, 162, 235, 0.2)",
+                        borderColor: "rgba(54, 162, 235, 1)",
+                        borderWidth: 1
+                    },
+                ],
+            },
+            options: {
+                animation: false,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+        const socket = new WebSocket("wss://7c2a-115-91-214-5.ngrok-free.app/ws"); // Update WebSocket URL here
+
+        let cnt = 0;
+
+        socket.onopen = (e)=>{
+            console.log("WebSocket connected");
+        };
+
+        socket.onmessage = (e)=>{
+            const data = JSON.parse(e.data);
+
+            document.querySelector("#tmp").innerText = "Bitcoin Value (USD): " + data.BTC_Value_USD;
+
+            if (data.BTC_Value_USD === undefined) return;
+
+            dataList.push(data.BTC_Value_USD);
+            if (dataList.length > 20) {
+                dataList.shift();
+            }
+
+            labelsList.push(String(cnt));
+            if (labelsList.length > 20) {
+                labelsList.shift();
+            }
+            cnt = (cnt + 1) % 100;
+
+            myLineChart.update();
+            myPieChart.data.datasets[0].data = [data.BTC_Value_USD, data.BTC_Value_USD, data.BTC_Value_USD];
+            myPieChart.update();
+            myBarChart.update();
+        };
+
+        socket.onerror = (error)=>{
+            console.log("WebSocket error: ", error);
+        };
+    </script>
+</body>
+</html>
+
+

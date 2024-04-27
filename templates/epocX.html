@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+
+{% block title %}epocx{% endblock %}
+
+{% block content %}
+    <article id="bandpower" class="teams" >
+        <div class="box w3-row">
+            <section class="info-section w3-container w3-half">
+                <h1 class="w3-text-teal">BAND POWER</h1>
+                <p class="w3-left-align">power of the EEG data</p>
+                <p class="w3-left-align">unit : uV^2</p>
+                <p class="w3-left-align"><i>each sample is calculated based on last 2 seconds of EEG data</i></p>
+                <details>
+                <summary>Frequency for each band</summary>
+                <ul>
+                    <li>theta (4-8Hz)</li>
+                    <li>alpha (8-12Hz)</li>
+                    <li>betaL (low beta, 12-16Hz)</li>
+                    <li>betaH (high beta, 16-25Hz)</li>
+                    <li>gamma (25-45Hz)</li>
+                </ul>
+                </details>
+            </section>
+            <section class="chart-section w3-container w3-third">
+                <canvas width="300px" height="300px"></canvas>
+            </section>
+            <section class="w3-container w3-third">
+                <ul id="select-sensors">
+                    <li>
+                        <input type="checkbox" name="sensors" id="af3" value="af3" checked>
+                        <label for="af3">af3</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="sensors" id="f7" value="f7">
+                        <label for="f7">f7</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="sensors" id="f3" value="f3">
+                        <label for="f3">f3</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="sensors" id="fc5" value="fc5">
+                        <label for="fc5">fc5</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="sensors" id="t7" value="t7">
+                        <label for="t7">t7</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="sensors" id="p7" value="p7">
+                        <label for="p7">p7</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="sensors" id="o1" value="o1">
+                        <label for="o1">o1</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="sensors" id="o2" value="o2">
+                        <label for="o2">o2</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="sensors" id="p8" value="p8">
+                        <label for="p8">p8</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="sensors" id="t8" value="t8">
+                        <label for="t8">t8</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="sensors" id="fc6" value="fc6">
+                        <label for="fc6">fc6</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="sensors" id="f4" value="f4">
+                        <label for="f4">f4</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="sensors" id="f8" value="f8">
+                        <label for="f8">f8</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="sensors" id="af4" value="af4">
+                        <label for="af4">af4</label>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </article>
+
+    <article id="motion" class="teams">
+        <div class="box">
+            <section class="w3-container w3-twothird">
+                <canvas></canvas>
+            </section>
+            <section class="info-section w3-container w3-third">
+                <h1 class="w3-text-teal">MOTION</h1>
+                <p>accelometer for X, Y, Z axis</p>
+            </section>
+        </div>
+    </article>
+
+    <article id="performanceMetric" class="teams">
+        <div class="box">
+            <section class="info-section w3-container w3-half">
+                <h1 class="w3-text-teal">PERFORMANCEMETRIC</h1>
+                <p class="w3-left-align">each data value means the degree of a particular emotion</p>
+                <p class="w3-left-align">value range : 0.0 ~ 1.0</p>
+                <p class="w3-left-align">lower value means lower level of the emotion</p>
+                <details>
+                    <summary>each lables stands for..</summary>
+                    <ul>
+                        <li>EXC = Engagement</li>
+                        <li>ENG = Excitement</li>
+                        <li>LEX = Long term excitemen</li>
+                        <li>STR = Stress</li>
+                        <li>REL = Relaxation</li>
+                        <li>INT = Interest</li>
+                        <li>FOC = Focus</li>
+                    </ul>
+                </details>
+            </section>
+            <section class="w3-container w3-half">
+                <canvas></canvas>
+            </section>
+        </div>
+    </article>
+{% endblock %}

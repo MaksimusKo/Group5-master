@@ -1,0 +1,38 @@
+<!-- dashboard.html -->
+{% extends "base.html" %}
+
+{% block title %}index{% endblock %}
+
+{% block content %}
+
+<article id="performanceMetric" class="teams">
+    <div class="box">
+        <section class="w3-container w3-quarter">
+            <h1 class="w3-text-teal">EPOC-X</h1>
+            <p class="w3-left-align">wireless EEG headset</p>
+            <p class="w3-left-align">data transmission using Bluetooth 5.0</p>
+            <p class="w3-left-align">total 14 channels for whole brain scanning</p>
+            <p class="w3-left-align">use Cortex API to get and utilize the data</p>
+        </section>
+        <section class="w3-container w3-threequarter">
+            <img class="w3-container w3-half" src="static/src/Store_Epoc-X_1_1220x_crop_center-removebg-preview.png" alt="epocX image sideview">
+            <img class="w3-container w3-half" src="static/src/Store_Epoc-X_2_1220x_crop_center-removebg-preview.png" alt="epocX image overview">
+        </section>
+    </div>
+</article>
+<article id="performanceMetric" class="teams">
+    <div class="box">
+        <section class="w3-container w3-half">
+            <img class="w3-container w3-half" src="static/src/ECGEMG2_edited-2-removebg-preview.png" alt="shimmer image">
+            <img class="w3-container w3-half" src="static/src/img_4154-scaled-removebg-preview.png" alt="shimmer image">
+        </section>
+        <section class="w3-container w3-half">
+            <h1 class="w3-text-teal">Shimmer3 EMG Unit</h1>
+            <p class="w3-left-align">measurement device for physiological signals for EMG</p>
+            <p class="w3-left-align">
+                measures and records the electrical activity associated with muscle contractions, assesses nerve conduction, muscle response in injured tissue, activation level, or can be used to analyze and measure the bio-mechanics of human or animal movement.
+            </p>
+        </section>
+    </div>
+</article>
+{% endblock %}
